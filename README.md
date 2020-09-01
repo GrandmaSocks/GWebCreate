@@ -6,5 +6,5 @@
 <h3>FAQ</h3>
 <h3>------------------------------</h3>
 
-<h5> Q: Why not use Emmet or another feature my text editor has?</h5>
+<h3> Q: Why not use Emmet or another feature my text editor has?</h3>
 <b> A: GWebCreate generates a folder and basic files you NEED for your website in a minute, while using a command prompt and emmet usually would take around 5 minutes</b>
