@@ -27,15 +27,15 @@ namespace GWebCreate
 
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine("[1] Basic / Simple Mode (Fastest)");
-                Console.WriteLine("[2] Advanced Mode (Customize your template)");
+                Console.WriteLine("[1] Standard Mode");
+                Console.WriteLine("[2] Portfolio Mode");
                 string modeInput = Console.ReadLine();
 
                 switch (modeInput)
                 {
                     case "1":
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Basic Mode Selected");
+                        Console.WriteLine("Standard Mode Selected");
                         Console.ForegroundColor = ConsoleColor.White;
                         Thread.Sleep(500);
                         Console.Clear();
@@ -44,6 +44,8 @@ namespace GWebCreate
                         string folderInput = Console.ReadLine();
 
                         string folderPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + "\\" + "" + folderInput;
+                        string imagesFolderPath = folderPath + "\\" + "images";
+
                         string indexPath = folderPath + "\\" + "index.html";
                         string stylePath = folderPath + "\\" + "style.css";
                         string JSPath = folderPath + "\\" + "main.js";
@@ -55,6 +57,7 @@ namespace GWebCreate
                         string[] jsLines = { };
 
                         System.IO.Directory.CreateDirectory(folderPath);
+                        System.IO.Directory.CreateDirectory(imagesFolderPath);
 
                         File.WriteAllLines(indexPath, indexLines);
                         File.WriteAllLines(stylePath, styleLines);
@@ -64,11 +67,39 @@ namespace GWebCreate
 
                     case "2":
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Advanced Mode Selected");
+                        Console.WriteLine("Portfolio Mode Selected");
                         Console.ForegroundColor = ConsoleColor.White;
                         Thread.Sleep(500);
                         Console.Clear();
 
+
+                        Console.WriteLine("Enter the name the folder should have");
+                        string portfolioFolderInput = Console.ReadLine();
+
+                        string portfolioFolderPath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + "\\" + "" + portfolioFolderInput;
+                        string PortfolioImagesFolderPath = portfolioFolderPath + "\\" + "images";
+
+                        string PindexPath = portfolioFolderPath + "\\" + "index.html";
+                        string PortfolioPath = portfolioFolderPath + "\\" + "portfolio.html";
+                        string ContactPath = portfolioFolderPath + "\\" + "contact.html";
+                        string PstylePath = portfolioFolderPath + "\\" + "style.css";
+                        string PJSPath = portfolioFolderPath + "\\" + "main.js";
+
+                        string[] PindexLines = { "<!DOCTYPE html>", "", "<html=\"en\">", "", "<head>", "", "<meta charset=\"UTF-8\">", "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "", "<title>Document</title>", "<link rel=\"stylesheet\" href=\"style.css\">", "", "</head>", "", "<body>", "", "</body>", "", "</html>" };
+
+                        string[] PortfolioLines = { "<!DOCTYPE html>", "", "<html=\"en\">", "", "<head>", "", "<meta charset=\"UTF-8\">", "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "", "<title>Portfolio</title>", "<link rel=\"stylesheet\" href=\"style.css\">", "", "</head>", "", "<body>", "", "</body>", "", "</html>" };
+
+                        string[] ContactLines = { "<!DOCTYPE html>", "", "<html=\"en\">", "", "<head>", "", "<meta charset=\"UTF-8\">", "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "", "<title>Portfolio</title>", "<link rel=\"stylesheet\" href=\"style.css\">", "", "</head>", "", "<body>", "", "</body>", "", "</html>" };
+
+                        string[] PstyleLines = { ":root{}", "", "h1{}", "", "p{}" };
+
+                        System.IO.Directory.CreateDirectory(portfolioFolderPath);
+                        System.IO.Directory.CreateDirectory(PortfolioImagesFolderPath);
+
+                        File.WriteAllLines(PindexPath, PindexLines);
+                        File.WriteAllLines(PortfolioPath, PortfolioLines);
+                        File.WriteAllLines(ContactPath, ContactLines);
+                        File.WriteAllLines(PstylePath, PstyleLines);
 
 
                         break;
